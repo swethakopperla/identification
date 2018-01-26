@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>make an appointment</title>
+<style>
+article {
+    margin-left: 500px;
+    border-left: 1px solid white;
+    padding: 1em;
+    overflow: hidden;
+}
+div.container {
+    width: 100%;
+    border: 1px ;
+}
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 500px;
+    height: 500px;
+}
+
+
+nav {
+    float: left;
+    max-width: 700px;
+    margin: 0;
+    padding: 1em;
+}
+
+input[type=text], select{
+    width: 40%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+.app
+{
+color:blue;
+}
+	
+button {
+    width: 10%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+textarea {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    resize: vertical;
+}
+input[type=tel]{
+    width: 40%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+input[type=date]{
+    width: 40%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<nav>
+ <img src='images/download.jpeg' alt='Paris' style='width:500px'>
+
+</nav>
+<article>
+<h1 class="app">Make Appointment</h1>
+<h2>your appointment</h2>
+<form name="myform" action="action1.php" method="get">
+<input type="text" name="fname" placeholder="First Name...">
+<input type="text" name="surname" placeholder="Sur Name.....">
+<br>
+<input type="email" name="number" placeholder="Your Email..">
+<input type="tel" name="number" placeholder="Phone number..">
+<br>
+<input type="text" name="number" placeholder="Adhar Number..">
+<input type="date" name="date" max="2070-12-31" >
+
+<br>
+<input type="submit" value="Make an Appointment">
+	</form>
+</article>
+
+</div>
+
+</body>
+</html>
+
