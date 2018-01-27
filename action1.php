@@ -29,23 +29,10 @@ email VARCHAR(30) NOT NULL,
 number VARCHAR(15) not null,
 anumber VARCHAR(15) not null,
 date date not null UNIQUE,
-)";
+);";
 
 echo "<br>";
 
-if (mysqli_query($conn, $sql)) {
-    echo "Table MyGuests created successfully";
-} else {
-    echo "Error creating table: " . mysqli_error($conn);
-}
-	$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 echo "<br>";
 $sql="insert into identification (fname,surname,email,number,anumber,date) 
