@@ -41,7 +41,7 @@ echo "<br>";
 
 echo "<br>";
 $sql="insert into identification (fname,surname,email,number,anumber,date) 
- values('$name','$email','$number','$date','$department','$dname','$text');";
+ values('$fname','$surname','$email','$number','$anumber','$date');";
 if(mysqli_query($conn,$sql)){
 echo "record sucessfully inserted.......";
 echo "<br>";
