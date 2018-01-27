@@ -28,7 +28,7 @@ surname VARCHAR(30) NOT NULL,
 email VARCHAR(30) NOT NULL,
 number VARCHAR(15) not null,
 anumber VARCHAR(15) not null,
-date date not null UNIQUE,
+date date not null UNIQUE
 )";
 
 if ($conn->query($sql) === TRUE) {
