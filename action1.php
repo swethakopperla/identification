@@ -35,7 +35,7 @@ if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
-
+}
 echo "<br>";
 
 
