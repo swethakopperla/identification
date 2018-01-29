@@ -1,4 +1,7 @@
 <html>
+<head>
+<title>dipaly content</title>
+</head>
 <body>
 <?php
 $fname=$_GET['fname'];
