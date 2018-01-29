@@ -37,7 +37,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 echo "<br>";
-echo "<br>";
 //php image upload in database start
 //$sql1="CREATE TABLE images (
 //id int(10) unsigned AUTO_INCREAMENT PRIMARY KEY,
