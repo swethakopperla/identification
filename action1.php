@@ -37,8 +37,50 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 echo "<br>";
+echo "<br>";
+//php image upload in database start
+$sql1="CREATE TABLE images (
+id int(10) unsigned AUTO_INCREAMENT PRIMARY KEY,
+addimg varchar(200) not null,
+status varchar(20)
+)";
+if ($conn->query($sql) === TRUE) {
+    echo "Table identification created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
 
-
+echo "<br>";
+if($_GET)
+{
+	if($_FILES["file"]["error"])
+	{
+		echo "Return Code:".$_FILES["file"]["error"]."<br>";
+	}
+	else
+	{
+		if(file_exists("images/" . $_FILES["file"]["name"]))
+		{
+			echo $_FILES["file"]["name"] . " already exists. ";
+		}
+		else
+		{	
+			if(move_uploaded_file($_FILES["file"]["tmp_name"],"images/" . $_FILES["file"]["name"]))
+			{
+			    $sql="insert into images(addimg,status) values("$_FILES["file"]["name"]","dispaly")"
+			    if(mysql_query($query_image))
+			    {
+				echo "Stored in: " . "images/" . $_FILES["file"]["name"];
+			    }
+			    else
+			    {
+				echo "file name is not stored in database.....";
+			    }
+			}
+		}
+	}
+}
+//php image upload in to database ends	
 echo "<br>";
 $sql="insert into identification (fname,surname,email,number,anumber,date) 
  values('$fname','$surname','$email','$number','$anumber','$date');";
