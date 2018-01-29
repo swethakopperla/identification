@@ -37,7 +37,7 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 echo "<br>";
-//php image upload in database start
+/*php image upload in database start
 $sql1="CREATE TABLE images (
 id int(10) unsigned AUTO_INCREAMENT PRIMARY KEY,
 addimg varchar(200) not null,
@@ -78,7 +78,7 @@ if($_GET)
 		}
 	}
 }
-//php image upload in to database ends	
+php image upload in to database ends*/	
 echo "<br>";
 $sql="insert into identification (fname,surname,email,number,anumber,date) 
  values('$fname','$surname','$email','$number','$anumber','$date');";
