@@ -20,17 +20,18 @@ $idnum=strtoupper($fname[0]).strtoupper($surname[0]).$num.$date[2].$date[1];
 echo  "id num is".$idnum."<>";
 $host="localhost";$user="root";
 $pass="Root@1234";$dbname="identification";
-  echo  "date: ".$date."</br>";
-echo  "department: ".$department."</br>";
+//  echo  "date: ".$date."</br>";
+//echo  "department: ".$department."</br>";
 	echo  "number ".$number."</br>";
-  echo  "dname:".$dname."</br>";
+//  echo  "dname:".$dname."</br>";
 $conn=mysqli_connect($host,$user,$pass,$dbname);
 if(!$conn)
 die("could not connect to the DB".mysqli_connect_error());
 else
 echo "connected sucessfully............. <br>";
-	$sql = "CREATE TABLE identification  (
+	$sql = "CREATE TABLE identifications  (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+idnum varchar(30) not null,
 fname VARCHAR(30) NOT NULL,
 surname VARCHAR(30) NOT NULL,
 email VARCHAR(30) NOT NULL,
@@ -88,8 +89,8 @@ if($_GET)
 }
 php image upload in to database ends*/	
 echo "<br>";
-$sql="insert into identification (fname,surname,email,number,anumber,date) 
- values('$fname','$surname','$email','$number','$anumber','$date');";
+$sql="insert into identification (idnum,fname,surname,email,number,anumber,date) 
+ values('$idnum','$fname','$surname','$email','$number','$anumber','$date');";
 if(mysqli_query($conn,$sql)){
 echo "record sucessfully inserted.......";
 echo "<br>";
