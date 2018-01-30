@@ -10,13 +10,13 @@ $email=$_GET['email'];
 $number=$_GET['number'];
 $anumber=$_GET['anumber'];
 $date=$_GET['date'];
-$date=explode('-',$date);
+$date1=explode('-',$date);
 $num="";
 for($i=6;$i<strlen($number);$i++)
 {
 $num=$num.$number[$i];
 }
-$idnum=strtoupper($fname[0]).strtoupper($surname[0]).$num.$date[2].$date[1];
+$idnum=strtoupper($fname[0]).strtoupper($surname[0]).$num.$date1[2].$date1[1];
 echo  "id num is".$idnum."<>";
 $host="localhost";$user="root";
 $pass="Root@1234";$dbname="identification";
