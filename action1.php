@@ -41,7 +41,7 @@ date date not null UNIQUE
 )";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Table identification created successfully";
+    echo "Table identifications created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
@@ -89,7 +89,7 @@ if($_GET)
 }
 php image upload in to database ends*/	
 echo "<br>";
-$sql="insert into identification (idnum,fname,surname,email,number,anumber,date) 
+$sql="insert into identifications(idnum,fname,surname,email,number,anumber,date) 
  values('$idnum','$fname','$surname','$email','$number','$anumber','$date');";
 if(mysqli_query($conn,$sql)){
 echo "record sucessfully inserted.......";
