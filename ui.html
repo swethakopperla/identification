@@ -108,7 +108,7 @@ input[type=submit]:hover {
 <artical>
 <h1 class="app">Identification</h1>
 <h2>Fill your Detailes</h2>
-<form name="myform" action="action1.php" method="get">
+<form name="myform" action="action1.php" method="get" enctype="multipart/form-data">
 Enter your Fullname     :
 <input type="text" name="fname" placeholder="First Name...">
 <br>
@@ -129,10 +129,10 @@ Enter your DOB          :
 
 <br>
 Select image to upload:
-<input type="file" name="photo"/>
+<input type="file" name="photo" id=fileSelect/>
 <br>
-<input type="submit" value="submit">
-	</form>
+	<input type="submit" name="submit" value="Upload">
+</form>
 </article>
 
 </div>
