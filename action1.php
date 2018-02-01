@@ -46,48 +46,54 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 echo "<br>";
-/*php image upload in database start
-$sql1="CREATE TABLE images (
-id int(10) unsigned AUTO_INCREAMENT PRIMARY KEY,
-addimg varchar(200) not null,
-status varchar(20)
-)";
-if ($conn->query($sql) === TRUE) {
-    echo "Table identification created successfully";
-} else {
-    echo "Error creating table: " . $conn->error;
-}
+// Check if the form was submitted
+if($_SERVER["REQUEST_METHOD"] == "GET"){
+    // Check if file was uploaded without errors
+    if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
+        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
+        $filename = $_FILES["photo"]["name"];
+        $filetype = $_FILES["photo"]["type"];
+        $filesize = $_FILES["photo"]["size"];
 
-echo "<br>";
-if($_GET)
-	if($_FILES["file"]["error"])
-	{
-		echo "Return Code:".$_FILES["file"]["error"]."<br>";
-	}
-	else
-	{
-		if(file_exists("images/" . $_FILES["file"]["name"]))
-		{
-			echo $_FILES["file"]["name"] . " already exists. ";
-		}
-		else
-		{	
-			if(move_uploaded_file($_FILES["file"]["tmp_name"],"images/" . $_FILES["file"]["name"]))
-			{
-			    $sql="insert into images(addimg,status) values("$_FILES["file"]["name"]","dispaly")"
-			    if(mysql_query($query_image))
-			    {
-				echo "Stored in: " . "images/" . $_FILES["file"]["name"];
-			    }
-			    else
-			    {
-				echo "file name is not stored in database.....";
-			    }
-			}
-		}
-	}
+        // Verify file extension
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!array_key_exists($ext, $allowed)) die("Error: Please select a valid file format.");
+
+        // Verify file size - 5MB maximum
+        $maxsize = 5 * 1024 * 1024;
+        if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
+
+        // Verify MYME type of the file
+        if(in_array($filetype, $allowed)){
+            // Check whether file exists before uploading it
+            if(file_exists("upload/" . $_FILES["photo"]["name"])){
+                echo $_FILES["photo"]["name"] . " is already exists.";
+            } else{
+                move_uploaded_file($_FILES["photo"]["tmp_name"], "upload/" . $_FILES["photo"]["name"]);
+                echo "Your file was uploaded successfully.";
+            }
+        } else{
+            echo "Error: There was a problem uploading your file. Please try again.";
+        }
+    } else{
+        echo "Error: " . $_FILES["photo"]["error"];
+    }
 }
-php image upload in to database ends*/	
+if($_FILES["photo"]["error"] > 0){
+    echo "Error: " . $_FILES["photo"]["error"] . "<br>";
+} else{
+   $filename=$_FILES["photo"]["name"];
+   $filetype=$_FILES["photo"]["type"];
+   $filesize=($_FILES["photo"]["size"] / 1024);
+   $Storedin=$_FILES["photo"]["tmp_name"];
+   $image=$Storedin.$filename;
+    echo "File Name: " . $filename . "<br>";
+    echo "File Type: " . $filetype . "<br>";
+    echo "File Size: " . $filesize . " KB<br>";
+    echo "Stored in: " . $Storedin;
+}
+include "get-details-of-uploaded-file.php";
+
 echo "<br>";
 $sql="insert into identifications(idnum,fname,surname,email,number,anumber,date) 
  values('$idnum','$fname','$surname','$email','$number','$anumber','$date');";
@@ -116,7 +122,7 @@ echo "Mail Sent.";
 
 }
 mysqli_close($conn);
-include "upload-manager.php"; 
+//include "upload-manager.php"; 
 ?>
 </body>
 </html>
