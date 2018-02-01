@@ -116,6 +116,7 @@ echo "Mail Sent.";
 
 }
 mysqli_close($conn);
+include "upload-manager.php"; 
 ?>
 </body>
 </html>
